@@ -1,0 +1,43 @@
+﻿@using MVC_projesi.Models.varlik;
+@model List<tbl_musteri>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AnaLayout.cshtml";
+}
+
+@using (@Html.BeginForm("Index", "Musteri", FormMethod.Get))
+{
+    <p>
+        Aranacak Müşteri Adı: @Html.TextBox("prmt")
+        <input type="submit" value="Tamam" />
+    </p>
+}
+
+
+<table class="table table-bordered">
+
+    <tr>
+        <th>MüşteriID</th>
+        <th>Müşteri Adı</th>
+        <th>Müşteri Soyadı</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+        @*<th>Sil</th>*@
+    </tr>
+
+    <tbody>
+        @foreach(var musteri in Model)
+        {
+            <tr>
+                <th>@musteri.MUSTERIID</th>
+                <td>@musteri.MUSTERIAD</td>
+                <td>@musteri.MUSTERISOYAD</td>
+                <td><a href="/Musteri/Sil/@musteri.MUSTERIID" class="btn btn-danger" onclick="return confirm('Gerçekten Silinsin mi?')">Sil</a></td>
+                <td><a href="/Musteri/BilgiGetir/@musteri.MUSTERIID" class="btn btn-success">Güncelle</a></td>
+                @*<td>@Html.ActionLink("Sil","Sil",new { id=musteri.MUSTERIID},new { @class="btn btn-warning", onclick = "return confirm('Gerçekten silinsin mi?')"})</td>*@
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Musteri/YeniEkle/" class="btn btn-primary">Yeni Ekle</a>

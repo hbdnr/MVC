@@ -1,0 +1,36 @@
+﻿@using MVC_projesi.Models.varlik
+@using PagedList
+@using PagedList.Mvc
+
+@model PagedList.IPagedList<tbl_kategori>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AnaLayout.cshtml";
+}
+<table class="table table-bordered">
+    <tr>
+        <th>Kategori ID</th>
+        <th>Kategori ADI</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+
+    <tbody>
+
+        @foreach(var i in Model)
+        {
+            <tr>
+                <th>@i.KATEGORIID</th>
+                <td>@i.KATEGORIAD</td>
+                <td><a href="/Kategori/Sil/@i.KATEGORIID" class="btn btn-danger">SİL</a></td>
+                <td><a href="/Kategori/Guncelle/@i.KATEGORIID" class="btn btn-success">Guncelle</a></td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+@Html.PagedListPager((IPagedList)Model, sayfa=> Url.Action("Index",new { sayfa }))
+<a href="/Kategori/YeniEkle/" class="btn btn-primary">Yeni Kayıt</a>
+
+

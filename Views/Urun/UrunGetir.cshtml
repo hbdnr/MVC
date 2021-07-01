@@ -1,0 +1,34 @@
+﻿@model MVC_projesi.Models.varlik.tbl_urun
+
+@{
+    ViewBag.Title = "UrunGetir";
+    Layout = "~/Views/Shared/AnaLayout.cshtml";
+}
+
+@using (@Html.BeginForm("Guncelle", "Urun", FormMethod.Post))
+{
+    @Html.LabelFor(m => m.URUNID) <br />
+    @Html.TextBoxFor(m => m.URUNID, new { @class = "width=200 height=50" })
+    <br /> <br />
+    @Html.LabelFor(m => m.URUNAD) <br />
+    @Html.TextBoxFor(m => m.URUNAD, new { @class = "width=200 height=50" })
+    <br /> <br />
+    @Html.LabelFor(m => m.MARKA) <br />
+    @Html.TextBoxFor(m => m.MARKA, new { @class = "width=200 height=50" })
+    <br /> <br />
+    @Html.LabelFor(m => m.KATEGORİ) <br />
+    @*@Html.TextBoxFor(m => m.KATEGORİ, new { @class = "width=200 height=50" })*@
+    
+    @Html.DropDownListFor(m=>m.tbl_kategori.KATEGORIID,(List<SelectListItem>)ViewBag.dgr,new { @class = "width=300" })
+    <br /> <br />
+    @Html.LabelFor(m => m.FİYAT) <br />
+    @Html.TextBoxFor(m => m.FİYAT, new { @class = "width=200 height=50" })
+    <br /> <br />
+    @Html.LabelFor(m => m.STOK) <br />
+    @Html.TextBoxFor(m => m.STOK, new { @class = "width=200 height=50" })
+    <br /> <br /> <br />
+
+    <div>
+        <button class="btn btn-warning">Güncelle</button>
+    </div>
+}

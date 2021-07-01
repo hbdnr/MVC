@@ -1,0 +1,35 @@
+﻿@model MVC_projesi.Models.varlik.tbl_urun
+
+@{
+    ViewBag.Title = "YEniEkle";
+    Layout = "~/Views/Shared/AnaLayout.cshtml";
+}
+
+<form class="form-group" method="post">
+    <div>
+        <label>Ürün Adı</label><br />
+        <input type="text" name="URUNAD" width=200 height=45 required/>
+    </div>
+    <div>
+        <label>Markası</label><br />
+        <input type="text" name="MARKA" width=200 height=45 maxlength="10" />
+    </div>
+    <div>
+        <label>Kategorisi</label><br />
+        @Html.DropDownListFor(m=>m.tbl_kategori.KATEGORIID,(List<SelectListItem>)ViewBag.dgr,new { @class = "width=300" })
+    </div>
+    <div>
+        <label>Fiyat</label><br />
+        <input type="text" name="FİYAT" width=200 height=45 />
+    </div>
+    <div>
+        <label>Stok</label><br />
+        <input type="text" name="STOK" width=200 height=45 placeholder="en az 10 stok"/>
+    </div><br />
+
+    <div>
+        <button class="btn btn-info">Ekle</button>
+    </div>
+</form>
+
+

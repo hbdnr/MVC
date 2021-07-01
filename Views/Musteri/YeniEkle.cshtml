@@ -1,0 +1,28 @@
+﻿@model MVC_projesi.Models.varlik.tbl_musteri
+@{
+    ViewBag.Title = "YeniEkle";
+    Layout = "~/Views/Shared/AnaLayout.cshtml";
+}
+
+<form class="form-group" method="post">
+    <div>
+        <label>Müşteri Adı</label><br />
+        <input type="text" name="MUSTERIAD" width=200 height=45 /><br />
+        @Html.ValidationMessageFor(m=>m.MUSTERIAD,"",new { @style="color:darkblue"})<br />
+    </div>
+    <div>
+        <label>Müşteri Soyadı</label><br />
+        <input type="text" name="MUSTERISOYAD" width=200 height=45 />
+    </div><br />
+    <div>
+        <button class="btn btn-info" id="B1">Ekle</button>
+    </div>
+
+    <script>
+        $('#B1').click(function () {
+            alert("Kayıt Eklendi...");
+        });
+    </script>
+
+</form>
+

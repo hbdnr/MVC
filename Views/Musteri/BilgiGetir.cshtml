@@ -1,0 +1,26 @@
+﻿@model MVC_projesi.Models.varlik.tbl_musteri
+
+@{
+    ViewBag.Title = "BilgiGetir";
+    Layout = "~/Views/Shared/AnaLayout.cshtml";
+}
+
+@using (@Html.BeginForm("Guncelle", "Musteri", FormMethod.Post))
+{ 
+<div class="form-group">
+    @Html.LabelFor(m => m.MUSTERIID)
+    @Html.TextBoxFor(m => m.MUSTERIID, new { @class = "width=150" })
+    <br /> <br />
+
+    @Html.LabelFor(m => m.MUSTERIAD)
+    @Html.TextBoxFor(m => m.MUSTERIAD, new { @class = "width=150" })
+    <br /> <br />
+
+    @Html.LabelFor(m => m.MUSTERISOYAD)
+    @Html.TextBoxFor(m => m.MUSTERISOYAD, new { @class = "width=150" })
+    <br /><br /> <br />
+
+    <button class="btn btn-warning">Güncelle</button>
+</div>
+}
+

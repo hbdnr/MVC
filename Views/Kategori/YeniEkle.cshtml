@@ -1,0 +1,20 @@
+﻿@model MVC_projesi.Models.varlik.tbl_kategori
+
+@{
+    ViewBag.Title = "YeniEkle";
+    Layout = "~/Views/Shared/AnaLayout.cshtml";
+}
+
+<form class="form-group" method="post">
+    <div>
+        <label>Kategori Adı</label><br />
+
+        @*<input type="text" width="80" height="35" name="KategoriAd" /><br />*@
+
+        @Html.TextBoxFor(m=>m.KATEGORIAD,new {@class = "width=80 height=35"})<br />
+        @Html.ValidationMessageFor(m => m.KATEGORIAD, "", new { @style = "color:green" })  <br /><br />
+
+        <button class="btn btn-info">Kategori Ekle</button>
+    </div>
+</form>
+
